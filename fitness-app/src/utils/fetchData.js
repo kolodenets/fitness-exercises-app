@@ -1,4 +1,4 @@
-export const options = {
+export const exerciseOptions = {
   method: 'GET',
   url: 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',
   headers: {
@@ -7,8 +7,8 @@ export const options = {
   }
 };
 
-export const fetchData = async (url, options) => {
-  const response = await fetch(url, options);
+export const fetchData = async (url, exerciseOptions) => {
+  const response = await fetch(url, exerciseOptions);
   const data = await response.json();
 
   return data;
