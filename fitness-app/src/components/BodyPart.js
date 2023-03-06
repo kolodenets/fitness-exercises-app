@@ -1,8 +1,9 @@
 import React from "react";
 import { Stack, Typography } from "@mui/material";
-import Icon from "../assets/icons/gym.png";
 
-const BodyPart = ({ item, setBodyPart, bodyPart, setCurrentPage }) => (
+import { bodyIcons } from "../utils/icons";
+
+const BodyPart = ({ item, setBodyPart, bodyPart, setCurrentPage, index }) => (
   <Stack
     type="button"
     alignItems="center"
@@ -20,11 +21,29 @@ const BodyPart = ({ item, setBodyPart, bodyPart, setCurrentPage }) => (
     onClick={() => {
       setBodyPart(item);
       setCurrentPage(1);
-      window.scrollTo({ top: 1800, left: 100, behavior: "smooth" });
+      window.scrollTo({
+        top:
+          window.innerWidth < 380
+            ? 1300
+            : window.innerWidth < 1025
+            ? 1250
+            : 1800,
+        left: 100,
+        behavior: "smooth",
+      });
     }}
   >
-    <img src={Icon} alt="dumbbell" style={{ width: "40px", height: "40px" }} />
-    <Typography fontSize="24px" fontWeight="bold" fontFamily="Alegreya" color="#3A1212" textTransform="capitalize"> {item}</Typography>
+    <img src={bodyIcons[index]} alt="dumbbell" style={{ width: "50px", height: "50px" }} />
+    <Typography
+      fontSize="24px"
+      fontWeight="bold"
+      fontFamily="Alegreya"
+      color="#3A1212"
+      textTransform="capitalize"
+    >
+      {" "}
+      {item === 'waist' ? 'waist & abs' : item}
+    </Typography>
   </Stack>
 );
 

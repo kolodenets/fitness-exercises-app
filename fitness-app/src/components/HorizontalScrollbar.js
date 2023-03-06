@@ -36,7 +36,7 @@ const HorizontalScrollbar = ({
 }) => {
   return (
     <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
-      {data.map((item) => (
+      {data.map((item, index) => (
         <Box
           key={item.id || item}
           itemId={item.id || item}
@@ -49,6 +49,7 @@ const HorizontalScrollbar = ({
               setBodyPart={setBodyPart}
               bodyPart={bodyPart}
               setCurrentPage={setCurrentPage}
+              index={index}
             />
           ) : (
             <ExerciseCard exercise={item} />
